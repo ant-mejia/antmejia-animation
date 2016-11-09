@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Expletus+Sans:500" rel="stylesheet">
+    <link rel="shortcut icon" type="image/jpg" rel="shortcut" href="sp.jpg">
+    <style type="text/css">
+    body {
+        height: 100%;
+        color: rgba(0, 0, 0, 0.3);
+        background: linear-gradient(135deg, #4CB8C4, #3CD3AD);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        font-family: sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    
+    h1 {
+        font-family: 'Expletus Sans', cursive;
+        font-size: 100px;
+    }
+    
+    .anim-container {
+        display: block;
+        margin: 0 auto;
+        position: absolute;
+        overflow: hidden;
+        margin-top: 100px;
+    }
+    
+    #patrick {
+        position: absolute;
+        bottom: 10px;
+    }
+    
+    #squid {
+        position: absolute;
+        bottom: -70px;
+        left: 500px;
+        height: 60%;
+    }
+    
+    .arcade {
+        position: relative;
+        height: 100%;
+    }
+    
+    #dropdown {
+        margin-left: 50px;
+        margin-bottom: 100px;
+    }
+    
+    #dropdown #charlist {
+        display: none;
+        list-style: none;
+    }
+    
+    #dropdown #charlist li {
+        display: inline-block;
+        margin: -20px 20px 0;
+        font-size: 18px;
+        color: #A3495C;
+    }
+    
+    #dropdown #charlist li:hover {
+        cursor: pointer;
+        color: #000;
+    }
+    
+    #dropdown:hover #charlist {
+        display: initial;
+    }
+    </style>
+    <title>Spongebob Animation</title>
+</head>
+
+<body id="body">
+    <h1>Life at Bikini Bottom</h1>
+    <div class="anim-container">
+        <img class="arcade" src="arcade.jpg">
+        <img id="patrick" src="patrick copy.gif">
+        <img id="squid" src="squid.gif">
+    </div>
+    <div id="dropdown">
+        <h2>Characters</h2>
+        <ul id="charlist">
+            <li>Spongebob Squarepants</li>
+            <li>Patrick Star</li>
+            <li>Squidward Tentacles</li>
+            <li>Eugene Krabs</li>
+            <li>Sandy Cheeks</li>
+            <li>Plankton</li>
+            <li>Gary</li>
+        </ul>
+    </div>
+</body>
+<script type="text/javascript">
+function moveElement() {
+    var e = document.getElementById('patrick');
+    var pos = -400;
+    console.log(pos);
+    var cont = e.parentNode;
+    var id = setInterval(frame, 10);
+
+    function frame() {
+        if (pos === (1500)) {
+            pos = -400;
+        } else if (pos === -90) {
+            document.getElementById('squid').style.display = "none";
+            pos++;
+            e.style.left = pos + "px";
+        } else {
+            pos++;
+            e.style.left = pos + "px";
+        }
+    }
+}
+window.onload = moveElement();
+</script>
+
+</html>
